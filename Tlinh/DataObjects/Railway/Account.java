@@ -1,5 +1,9 @@
 package Railway;
 
-public class Account {
+import Constant.Constant;
 
+public class Account {
+	protected String username;
+	
+	
 }

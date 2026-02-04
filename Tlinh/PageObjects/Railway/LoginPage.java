@@ -1,9 +1,10 @@
 package Railway;
-
+import Common.Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import Constant.Constant;
+
 
 public class LoginPage extends GeneralPage {
 	// Locators
@@ -11,27 +12,31 @@ public class LoginPage extends GeneralPage {
     private final By txtPassword = By.xpath("//input[@id='password']");
     private final By btnLogin = By.xpath("//input[@value='login']");
     private final By lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
+   
 
     // Elements
     public WebElement getTxtUsername() {
-        return Constant.WEBDRIVER.findElement(txtUsername);
+        return Utilities.waitForElementClickable(txtUsername, 3);
     }
 
     public WebElement getTxtPassword() {
-        return Constant.WEBDRIVER.findElement(txtPassword);
+        return Utilities.waitForElementClickable(txtPassword, 3);
     }
 
     public WebElement getBtnLogin() {
-        return Constant.WEBDRIVER.findElement(btnLogin);
+    	return Utilities.waitForElementClickable(btnLogin, 3);
     }
 
-    public WebElement getLblLoginErrorMsg() {
-        return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
+    public String getLblLoginErrorMsg() {
+        return Constant.WEBDRIVER.findElement(lblLoginErrorMsg).getText();
     }
-
+    
+   
     //Methods
     public HomePage login(String username, String password) {
     	//Submit login credentials
+    	this.getTxtUsername().clear();
+    	this.getTxtPassword().clear();
     	this.getTxtUsername().sendKeys(username);
     	this.getTxtPassword().sendKeys(password);
     	this.getBtnLogin().click();
@@ -39,4 +44,6 @@ public class LoginPage extends GeneralPage {
     	//Land on Home Page
     	return new HomePage();
     }
+    
+    
 }

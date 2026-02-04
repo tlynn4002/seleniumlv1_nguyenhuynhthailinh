@@ -1,0 +1,58 @@
+package Railway;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import Constant.Constant;
+
+
+public class CreateAccount extends LoginTest{
+	@Test
+	public void TC07()
+    {
+    	System.out.println("TC07 - User is redirected to Home page after logging out");
+    	
+    	HomePage homePage = new HomePage();
+        homePage.open();
+    	
+    	LoginPage loginPage = homePage.gotoLoginPage();
+
+        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
+        
+    	loginPage.getTabFAQ().click();;
+    	loginPage.getTabLogout().click();;
+    	Assert.assertTrue(homePage.isLogoutTabInvisible(),
+    	        "Login tab is not disappeared");
+
+   }
+	
+	@Test
+	public void TC08()
+	{
+		System.out.println("TC08 - User can't create account while password and PID fields are empty");
+		HomePage homePage = new HomePage();
+        homePage.open();
+        
+        String emailAccount = "test@sharklasers.com";
+       
+        
+        RegisterPage registerPage = homePage.gotoRegisterPage();
+        registerPage.register(emailAccount, "", "", "");
+        
+        String actualMsg = registerPage.getLblErrorMsg().getText();
+        String expectedMsg = "There're errors in the form. Please correct the errors and try again.";
+        Assert.assertEquals(actualMsg, expectedMsg,
+                "Error message is not display correctly");
+        
+        String actualPasswordMsg=registerPage.getPasswordErrorMsg();
+        String expectedPasswordMsg="Invalid password length.";
+        Assert.assertEquals(actualPasswordMsg, expectedPasswordMsg,
+                "Password error message is not display correctly");
+        
+        String actualPIDMsg=registerPage.getLblPIDErrorMsg().getText();
+        String expectedPIDMsg="Invalid ID length.";
+        Assert.assertEquals(actualPIDMsg, expectedPIDMsg,
+                "ID error message is not display correctly");
+        
+	}
+}
