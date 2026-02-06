@@ -1,6 +1,7 @@
 package Common;
 
 import java.time.Duration;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -38,4 +39,22 @@ public class Utilities {
 	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
 	    return wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
 	}
+	public static void click(By locator, int timeout) {
+	    WebElement element = waitForElementClickable(locator, timeout);
+	    element.click();
+	}
+
+	public static String randomPID() {
+	    String numberFrom0to9 = "0123456789";
+	    StringBuilder pid = new StringBuilder();
+	    Random random = new Random();
+
+	    for (int i = 0; i < 9; i++) {
+	        int index = random.nextInt(numberFrom0to9.length());
+	        pid.append(numberFrom0to9.charAt(index));
+	    }
+	    return pid.toString();
+	}
+	
+	
 }

@@ -1,5 +1,9 @@
 package Railway;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import Common.Utilities;
 import Constant.Constant;
 
 public class HomePage extends GeneralPage {
@@ -9,5 +13,14 @@ public class HomePage extends GeneralPage {
 		Constant.WEBDRIVER.navigate().to(Constant.RAILWAY_URL);
 		return this;
 	}
-
+	private final By btnCreateAccount= By.xpath("//a[normalize-space()='create an account']");
+	
+	protected WebElement getBtnCreateAccount() 
+	{
+		return Utilities.waitForElementClickable(btnCreateAccount, 3);
+	}
+	public RegisterPage gotoRegisterPageByCreateAccount() {
+	    this.getBtnCreateAccount().click();
+	    return new RegisterPage();
+	}
 }

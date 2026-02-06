@@ -27,8 +27,9 @@ public class LoginPage extends GeneralPage {
     	return Utilities.waitForElementClickable(btnLogin, 3);
     }
 
-    public String getLblLoginErrorMsg() {
-        return Constant.WEBDRIVER.findElement(lblLoginErrorMsg).getText();
+    public String getLblLoginErrorMsg()
+    {
+    	return Utilities.waitForElementClickable(lblLoginErrorMsg, 3).getText();
     }
     
    

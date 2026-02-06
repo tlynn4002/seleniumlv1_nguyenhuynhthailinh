@@ -4,25 +4,33 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import Constant.Constant;
+import Constant.MenuItem;
 
 
 public class CreateAccount extends LoginTest{
 	@Test
 	public void TC07()
     {
-    	System.out.println("TC07 - User is redirected to Home page after logging out");
+    	System.out.println("TC07 - User can't create account with an already in-use email");
     	
+    	String expectedMsg = "This email address is already in use.";
+    	Account account=new Account(Constant.USERNAME, Constant.PASSWORD,Constant.PID);
+    	
+    	System.out.println("Step 1: Navigate to QA Railway Website");
+    	System.out.println("Step 2: Click on Register tab");
     	HomePage homePage = new HomePage();
         homePage.open();
-    	
-    	LoginPage loginPage = homePage.gotoLoginPage();
-
-        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         
-    	loginPage.getTabFAQ().click();;
-    	loginPage.getTabLogout().click();;
-    	Assert.assertTrue(homePage.isLogoutTabInvisible(),
-    	        "Login tab is not disappeared");
+        RegisterPage registerPage = (RegisterPage) homePage.gotoPage(MenuItem.REGISTER);
+        
+    	System.out.println("Step 3: Enter information of the created account in Pre-condition");
+    	System.out.println("Step 4: Click on Register button");
+
+        registerPage.register(account.getEmail(), account.getPassword(),account.getPassword(),account.getPid());
+        
+        String actualMsg = registerPage.getLblErrorMsg().getText(); 
+        Assert.assertEquals(actualMsg, expectedMsg,
+                "Error message is not display correctly");
 
    }
 	
@@ -36,7 +44,7 @@ public class CreateAccount extends LoginTest{
         String emailAccount = "test@sharklasers.com";
        
         
-        RegisterPage registerPage = homePage.gotoRegisterPage();
+        RegisterPage registerPage = (RegisterPage)homePage.gotoPage(MenuItem.REGISTER);
         registerPage.register(emailAccount, "", "", "");
         
         String actualMsg = registerPage.getLblErrorMsg().getText();
@@ -54,5 +62,14 @@ public class CreateAccount extends LoginTest{
         Assert.assertEquals(actualPIDMsg, expectedPIDMsg,
                 "ID error message is not display correctly");
         
+	}
+	@Test
+	public void TC09() 
+	{
+		System.out.println("TC09 - User create and activate account");
+		
+		
+		
+		
 	}
 }
