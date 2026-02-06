@@ -26,7 +26,7 @@ public class LoginTest extends TestBase{
         System.out.println("Step 4: Click on 'Login' button");
         
         String actualMsg = loginPage
-                .login(account.getEmail(), account.getPassword())
+                .login(account)
                 .getWelcomeMessage();
 
 
@@ -51,7 +51,7 @@ public class LoginTest extends TestBase{
     	System.out.println("Step 3: User doesn't type any words into Username textbox but enter valid information into Password textbox");
     	System.out.println("Step 4: Click on Login button");
 
-    	loginPage.login(account.getEmail(), account.getPassword());
+    	loginPage.login(account);
     
 
         String actualMsg = loginPage.getLblLoginErrorMsg(); 
@@ -77,7 +77,7 @@ public class LoginTest extends TestBase{
     	System.out.println("Step 3: Enter valid Email and invalid Password");
     	System.out.println("Step 4: Click on \"Login\" button");
 
-        loginPage.login(account.getEmail(),account.getPassword());
+        loginPage.login(account);
 
         String actualMsg = loginPage.getLblLoginErrorMsg();
         
@@ -111,7 +111,7 @@ public class LoginTest extends TestBase{
         for(int i=1;i<=4;i++)
         {
         	
-        	loginPage.login(account.getEmail(),account.getPassword());
+        	loginPage.login(account);
         	actualMsg = loginPage.getLblLoginErrorMsg();
         	expectedMsg= "Invalid username or password. Please try again.";
         	Assert.assertEquals(actualMsg, expectedMsg,
@@ -119,7 +119,7 @@ public class LoginTest extends TestBase{
         	
         	if(i==4)
         	{
-        		loginPage.login(account.getEmail(),account.getPassword());
+        		loginPage.login(account);
         		actualMsg = loginPage.getLblLoginErrorMsg();
             	expectedMsg= "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.";
             	Assert.assertEquals(actualMsg, expectedMsg,
@@ -151,7 +151,7 @@ public class LoginTest extends TestBase{
     	System.out.println("Step 3: Enter username and password of account hasn't been activated.");
     	System.out.println("Step 4: Click on Login button");
         
-        loginPage.login(account.getEmail(), account.getPassword());
+        loginPage.login(account);
 
         String actualMsg = loginPage.getLblLoginErrorMsg();
 

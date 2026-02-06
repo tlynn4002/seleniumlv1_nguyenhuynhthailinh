@@ -59,16 +59,16 @@ public class RegisterPage extends GeneralPage{
 		return Utilities.waitForElementClickable(lblPIDErrorMsg, 3);
 	}
 	
-	public HomePage register(String email, String password, String cfPassword, String PID) {
+	public HomePage register(Account account) {
     	//Submit login credentials
     	this.getTxtEmail().clear();
     	this.getTxtPassword().clear();
     	this.getConfirmPassword().clear();
     	this.getTxtPID().clear();
-    	this.getTxtEmail().sendKeys(email);
-    	this.getTxtPassword().sendKeys(password);
-    	this.getConfirmPassword().sendKeys(cfPassword);
-    	this.getTxtPID().sendKeys(PID);
+    	this.getTxtEmail().sendKeys(account.getEmail());
+    	this.getTxtPassword().sendKeys(account.getPassword());
+    	this.getConfirmPassword().sendKeys(account.getPassword());
+    	this.getTxtPID().sendKeys(account.getPid());
     	this.getBtnRegister().click();
     	
     	//Land on Home Page

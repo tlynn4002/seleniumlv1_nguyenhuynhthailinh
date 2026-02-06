@@ -34,12 +34,12 @@ public class LoginPage extends GeneralPage {
     
    
     //Methods
-    public HomePage login(String username, String password) {
+    public HomePage login(Account account) {
     	//Submit login credentials
     	this.getTxtUsername().clear();
     	this.getTxtPassword().clear();
-    	this.getTxtUsername().sendKeys(username);
-    	this.getTxtPassword().sendKeys(password);
+    	this.getTxtUsername().sendKeys(account.getEmail());
+    	this.getTxtPassword().sendKeys(account.getPassword());
     	this.getBtnLogin().click();
     	
     	//Land on Home Page

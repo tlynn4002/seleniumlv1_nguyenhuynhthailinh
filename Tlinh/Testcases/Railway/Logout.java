@@ -22,7 +22,7 @@ public class Logout extends LoginTest {
 	        LoginPage loginPage = (LoginPage) homePage.gotoPage(MenuItem.LOGIN);
 	        
 	        System.out.println("Step 2: Login with valid Email and Password");
-	        loginPage.login(account.getEmail(), account.getPassword());
+	        loginPage.login(account);
 	        
 	        System.out.println("Step 3: Click on FAQ tab");
 	        FAQPage faqPage = (FAQPage) homePage.gotoPage(MenuItem.FAQ);

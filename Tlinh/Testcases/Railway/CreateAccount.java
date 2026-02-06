@@ -26,7 +26,7 @@ public class CreateAccount extends LoginTest{
     	System.out.println("Step 3: Enter information of the created account in Pre-condition");
     	System.out.println("Step 4: Click on Register button");
 
-        registerPage.register(account.getEmail(), account.getPassword(),account.getPassword(),account.getPid());
+        registerPage.register(account);
         
         String actualMsg = registerPage.getLblErrorMsg().getText(); 
         Assert.assertEquals(actualMsg, expectedMsg,
@@ -38,14 +38,23 @@ public class CreateAccount extends LoginTest{
 	public void TC08()
 	{
 		System.out.println("TC08 - User can't create account while password and PID fields are empty");
+		
+		
+		System.out.println("Step 1: Navigate to QA Railway Website");
+		
 		HomePage homePage = new HomePage();
         homePage.open();
+    	System.out.println("Step 2: Click on Register tab");
         
-        String emailAccount = "test@sharklasers.com";
+    	RegisterPage registerPage = (RegisterPage)homePage.gotoPage(MenuItem.REGISTER);
+    	 
+    	System.out.println("Step 3: Enter valid email address and leave other fields empty");
+     	System.out.println("Step 4: Click on Register button");
+     	
+    	Account account=new Account("test@sharklasers.com", "", "");
+        registerPage.register(account);
        
-        
-        RegisterPage registerPage = (RegisterPage)homePage.gotoPage(MenuItem.REGISTER);
-        registerPage.register(emailAccount, "", "", "");
+        //Check message//
         
         String actualMsg = registerPage.getLblErrorMsg().getText();
         String expectedMsg = "There're errors in the form. Please correct the errors and try again.";
@@ -68,7 +77,15 @@ public class CreateAccount extends LoginTest{
 	{
 		System.out.println("TC09 - User create and activate account");
 		
-		
+		System.out.println("Step 1: Navigate to QA Railway Website");
+		System.out.println("Step 2: Click on Create an account");
+		System.out.println("Step 3: Enter valid information into all fields");
+		System.out.println("Step 4: Click on Register button");
+		System.out.println("Step 5: Get email information (webmail address, mailbox and password) and navigate to that webmail");
+		System.out.println("Step 6: Login to the mailbox");
+		System.out.println("Step 7: Open email with subject containing Please confirm your account and the email of the new account at step 3");
+		System.out.println("Step 8: Click on the activate link");
+
 		
 		
 	}
