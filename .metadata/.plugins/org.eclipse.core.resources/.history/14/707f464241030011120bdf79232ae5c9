@@ -1,0 +1,60 @@
+package Railway;
+
+import java.text.Format;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import Common.Utilities;
+
+public class GruerrillaMailPage {
+	private By txtEmailName=By.xpath("//span[@id='inbox-id']");
+	private By inputEmailName=By.xpath("//span/input[@type=\"text\"]");
+	private By btnSet=By.xpath("//button[@class='save button small']");
+	private By chkboxScamble=By.xpath("//input[@id='use-alias']");
+	private By lblEmailName=By.id("email-widget");
+	private String confirmationEmail="//td[contains(text(),'%s')]";
+	private By linkConfirmActive=By.xpath("//div[contains(@class,'email_body')]//child::a");
+	protected WebElement getTxtEmailName()
+	{
+		return Utilities.waitForElementClickable(txtEmailName);
+	}
+	protected WebElement getBnSet()
+	{
+		return Utilities.waitForElementClickable(btnSet);
+	}
+	protected WebElement getChkboxScamble()
+	{
+		return Utilities.waitForElementClickable(chkboxScamble);
+	}
+	protected WebElement getLblEmailName()
+	{
+		return Utilities.waitForElementClickable(lblEmailName);
+	}
+	protected WebElement getInputEmailName()
+	{
+		return Utilities.waitForElementClickable(inputEmailName);
+	}
+	
+	protected WebElement getLinkConfirmActive()
+	{
+		return Utilities.waitForElementClickable(linkConfirmActive);
+	}
+	public GruerrillaMailPage setEmailName(String randomEmailName) 
+	{
+		this.getTxtEmailName().click();
+		this.getInputEmailName().sendKeys(randomEmailName);
+		this.getBnSet().click();
+		this.getChkboxScamble().click();
+		return this;
+	}
+	
+	public void activeEmail(String s)
+	{
+		String xpath=String.format(confirmationEmail, s);
+		Utilities.closeAdsIfPresent();
+		Utilities.click(By.xpath(xpath), 30);
+		Utilities.click(linkConfirmActive, 10);
+		Utilities.switchToWindowByTitle("Safe Railway - Registration Confirmation Pages");
+	}
+}

@@ -1,0 +1,53 @@
+package Railway;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import Common.Utilities;
+
+public class GruerrillaMailPage {
+	private By txtEmailName=By.xpath("//span[@id='inbox-id']");
+	private By inputEmailName=By.xpath("//span/input[@type=\"text\"]");
+	private By btnSet=By.xpath("//button[@class='save button small']");
+	private By chkboxScamble=By.xpath("//input[@id='use-alias']");
+	private By lblEmailName=By.xpath("//input[@id='use-alias']");
+	private By confirmationEmail=By.xpath("//td[contains(text(),'Please confirm your account')]");
+	private By linkConfirmActive=By.xpath("//div[contains(@class,'email_body')]//child::a");
+	protected WebElement getTxtEmailName()
+	{
+		return Utilities.waitForElementClickable(txtEmailName, 2);
+	}
+	protected WebElement getBnSet()
+	{
+		return Utilities.waitForElementClickable(btnSet, 2);
+	}
+	protected WebElement getChkboxScamble()
+	{
+		return Utilities.waitForElementClickable(chkboxScamble, 2);
+	}
+	protected WebElement getLblEmailName()
+	{
+		return Utilities.waitForElementClickable(lblEmailName, 2);
+	}
+	protected WebElement getInputEmailName()
+	{
+		return Utilities.waitForElementClickable(inputEmailName, 2);
+	}
+	protected WebElement getConfirmationEmail()
+	{
+		return Utilities.waitForElementClickable(confirmationEmail, 2);
+	}
+	protected WebElement getLinkConfirmActive()
+	{
+		return Utilities.waitForElementClickable(linkConfirmActive, 2);
+	}
+	public GruerrillaMailPage setEmailName(String randomEmailName) 
+	{
+		this.getTxtEmailName().click();
+		this.getInputEmailName().sendKeys(randomEmailName);
+		this.getBnSet().click();
+		this.getChkboxScamble().click();
+		return this;
+		
+	}
+}

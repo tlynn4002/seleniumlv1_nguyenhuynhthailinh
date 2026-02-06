@@ -1,0 +1,25 @@
+package Railway;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import Common.Utilities;
+
+public class GruerrillaMailPage {
+	private By txtEmailName=By.xpath("//span[@id='inbox-id']");
+	private By btnSet=By.xpath("//button[@class='save button small']");
+	private By chkboxScamble=By.xpath("//input[@id='use-alias']");
+	
+	protected WebElement getTxtEmailName()
+	{
+		return Utilities.waitForElementClickable(txtEmailName, 2);
+	}
+	protected WebElement getBnSet()
+	{
+		return Utilities.waitForElementClickable(btnSet, 2);
+	}
+	protected WebElement getChkboxScamble()
+	{
+		return Utilities.waitForElementClickable(chkboxScamble, 2);
+	}
+}

@@ -1,0 +1,28 @@
+package Railway;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import Constant.Constant;
+
+public class Logout {
+		@Test
+		public void TC06()
+	    {
+	    	System.out.println("TC06 - User is redirected to Home page after logging out");
+	    	
+	    	HomePage homePage = new HomePage();
+	        homePage.open();
+	    	
+	    	LoginPage loginPage = homePage.gotoLoginPage();
+
+	        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
+	        
+	    	loginPage.getTabFAQ();
+	    	loginPage.getTabLogout();
+	    	Assert.assertTrue(homePage.isLogoutTabInvisible(),
+	    	        "Login tab is not disappeared");
+
+	   }
+
+}

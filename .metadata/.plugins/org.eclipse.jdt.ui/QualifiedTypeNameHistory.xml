@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="Constant.Consant"/>
+    <fullyQualifiedTypeName name="java.lang.invoke.ConstantBootstraps"/>
+    <fullyQualifiedTypeName name="java.time.Duration"/>
+    <fullyQualifiedTypeName name="net.bytebuddy.asm.Advice.Return"/>
+    <fullyQualifiedTypeName name="Railway.LoginTest"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.devtools.v142.fedcm.model.Account"/>
+    <fullyQualifiedTypeName name="Railway.Register"/>
+    <fullyQualifiedTypeName name="Railway.GeneralPage"/>
+    <fullyQualifiedTypeName name="Railway.TestBase"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.devtools.v142.fedcm.model.AccountUrlType"/>
+    <fullyQualifiedTypeName name="Railway.FAQPage"/>
+    <fullyQualifiedTypeName name="Railway.Logout"/>
+    <fullyQualifiedTypeName name="Railway.CreateAccount"/>
+    <fullyQualifiedTypeName name="net.bytebuddy.asm.Advice.Enter"/>
+    <fullyQualifiedTypeName name="Railway.GruerrillaMailPage"/>
+    <fullyQualifiedTypeName name="Railway.Account"/>
+    <fullyQualifiedTypeName name="Railway.RegisterPage"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.text.Format"/>
+    <fullyQualifiedTypeName name="org.testng.annotations.Test"/>
+    <fullyQualifiedTypeName name="Constant.Constant"/>
+    <fullyQualifiedTypeName name="Railway.HomePage"/>
+    <fullyQualifiedTypeName name="Railway.LoginPage"/>
+    <fullyQualifiedTypeName name="Constant.MenuItem"/>
     <fullyQualifiedTypeName name="java.lang.Byte"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.By"/>
-    <fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
-    <fullyQualifiedTypeName name="Constant.Consant"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
-    <fullyQualifiedTypeName name="java.lang.invoke.ConstantBootstraps"/>
+    <fullyQualifiedTypeName name="Common.Utilities"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
-    <fullyQualifiedTypeName name="Railway.LoginPage"/>
-    <fullyQualifiedTypeName name="Railway.HomePage"/>
-    <fullyQualifiedTypeName name="Constant.Constant"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
 </qualifiedTypeNameHistroy>

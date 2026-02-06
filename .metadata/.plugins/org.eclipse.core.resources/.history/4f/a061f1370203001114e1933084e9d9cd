@@ -1,0 +1,79 @@
+package Railway;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import Constant.Constant;
+import Constant.MenuItem;
+
+
+public class CreateAccount extends LoginTest{
+	@Test
+	public void TC07()
+    {
+    	System.out.println("TC07 - User can't create account with an already in-use email");
+    	
+    	String expectedMsg = "This email address is already in use.";
+    	Account account=new Account(Constant.USERNAME, Constant.PASSWORD,Constant.PID);
+    	
+    	System.out.println("Step 1: Navigate to QA Railway Website");
+    	System.out.println("Step 2: Click on Register tab");
+    	HomePage homePage = new HomePage();
+        homePage.open();
+        
+        RegisterPage registerPage = (RegisterPage) homePage.gotoPage(MenuItem.REGISTER);
+        
+    	System.out.println("Step 3: Enter information of the created account in Pre-condition");
+    	System.out.println("Step 4: Click on Register button");
+
+        registerPage.register(account.getEmail(), account.getPassword(),account.getPassword(),account.getPid());
+        
+        String actualMsg = registerPage.getPasswordErrorMsg(); 
+        Assert.assertEquals(actualMsg, expectedMsg,
+                "Error message is not display correctly");
+
+   }
+	
+	@Test
+	public void TC08()
+	{
+		System.out.println("TC08 - User can't create account while password and PID fields are empty");
+		HomePage homePage = new HomePage();
+        homePage.open();
+        
+        String emailAccount = "test@sharklasers.com";
+       
+        
+        RegisterPage registerPage = homePage.gotoRegisterPage();
+        registerPage.register(emailAccount, "", "", "");
+        
+        String actualMsg = registerPage.getLblErrorMsg().getText();
+        String expectedMsg = "There're errors in the form. Please correct the errors and try again.";
+        Assert.assertEquals(actualMsg, expectedMsg,
+                "Error message is not display correctly");
+        
+        String actualPasswordMsg=registerPage.getPasswordErrorMsg();
+        String expectedPasswordMsg="Invalid password length.";
+        Assert.assertEquals(actualPasswordMsg, expectedPasswordMsg,
+                "Password error message is not display correctly");
+        
+        String actualPIDMsg=registerPage.getLblPIDErrorMsg().getText();
+        String expectedPIDMsg="Invalid ID length.";
+        Assert.assertEquals(actualPIDMsg, expectedPIDMsg,
+                "ID error message is not display correctly");
+        
+	}
+	@Test
+	public void TC09() 
+	{
+		System.out.println("TC09 - User create and activate account");
+		
+		HomePage homePage = new HomePage();
+        homePage.open();
+        
+        String emailAccount = "tc@sharklasers.com";
+		
+		
+		
+	}
+}

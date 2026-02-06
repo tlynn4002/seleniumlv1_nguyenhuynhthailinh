@@ -3,6 +3,7 @@ package Railway;
 import java.text.Format;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import Common.Utilities;
@@ -49,11 +50,12 @@ public class GruerrillaMailPage {
 		return this;
 	}
 	
-	public void activeEmail(String s)
+	public void activeEmail(String s,WebDriver webDriver)
 	{
 		String xpath=String.format(confirmationEmail, s);
 		Utilities.closeAdsIfPresent();
 		Utilities.click(By.xpath(xpath), 30);
+		Utilities.scrollToEndPage(webDriver);
 		Utilities.click(linkConfirmActive, 10);
 		Utilities.switchToWindowByTitle("Safe Railway - Registration Confirmation Pages");
 	}

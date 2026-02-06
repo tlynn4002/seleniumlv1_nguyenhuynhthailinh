@@ -1,0 +1,60 @@
+package Railway;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import Common.Utilities;
+
+
+public class GeneralPage {
+	private final By tabLogin= By.xpath("//div[@id='menu']//a[@href='/Account/Login.cshtml']");
+	private final By tabLogout=By.xpath("//div[@id='menu']//a[@href='/Account/Logout']");
+	private final By lblWelcomeMessage=By.xpath("//div[@class='account']//child::strong");//
+	//private final By lblWelcomeMessage=By.xpath("//div[@id='content']//child::h1");
+	private final By tabFAQ=By.xpath("//a[@href='/Page/FAQ.cshtml']");
+	private final By tabRegister=By.xpath("//span[normalize-space()='Register']");
+	protected WebElement getTabLogin()
+	{
+		return Utilities.waitForElementClickable(tabLogin, 3);
+	}
+	
+	protected WebElement getTabLogout()
+	{
+		return Utilities.waitForElementClickable(tabLogout, 3);
+	}
+	
+	protected WebElement getlblWelcomeMessage()
+	{
+		return Utilities.waitForElementClickable(lblWelcomeMessage, 3);
+	}
+	
+	protected String getWelcomeMessage()
+	{
+		return this.getlblWelcomeMessage().getText();
+	}
+	protected WebElement getTabFAQ()
+	{
+		return Utilities.waitForElementClickable(tabFAQ, 3);
+	}
+	
+	public LoginPage gotoLoginPage()
+	{
+		this.getTabLogin().click();
+		return new LoginPage();
+	}
+	
+	public boolean isLogoutTabInvisible() {
+	    return Utilities.waitForElementInvisible(tabLogout, 5);
+	}
+	
+	protected WebElement getTabRegister()
+	{
+		return Utilities.waitForElementClickable(tabRegister, 3);
+	}
+	public RegisterPage gotoRegisterPage()
+	{
+		this.getTabRegister().click();
+		return new RegisterPage();
+	}
+}

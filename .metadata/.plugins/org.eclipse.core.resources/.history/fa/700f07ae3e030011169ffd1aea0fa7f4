@@ -1,0 +1,12 @@
+package Railway;
+
+import org.openqa.selenium.By;
+
+public class BookTicketPage {
+	private final By departDate=By.xpath("//select[@name='Date']");
+	private final By departFrom=By.xpath("//select[@name='DepartStation']");
+	private final By arriveAt=By.xpath("//select[@name='ArriveStation']");
+	private final By seatType=By.xpath("//select[@name='SeatType']");
+	private final By ticketAmount=By.xpath("//select[@name='TicketAmount']");
+	private final By btnBookTicket=By.xpath("//input[@value='Book ticket']");
+}
