@@ -1,8 +1,11 @@
 package Railway;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WindowType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import Common.Utilities;
 import Constant.Constant;
 import Constant.MenuItem;
 
@@ -76,17 +79,66 @@ public class CreateAccount extends LoginTest{
 	public void TC09() 
 	{
 		System.out.println("TC09 - User create and activate account");
+		String randomEmail=Constant.RANDOM_EMAIL;
+		WebDriver driver = Constant.WEBDRIVER;
+		driver.get("https://www.guerrillamail.com/");
+		
+		//Set created random email to gruerrila mail//
+		GruerrillaMailPage mailGruerrilla = new GruerrillaMailPage();
+		mailGruerrilla.setEmailName(randomEmail);
+		String email=mailGruerrilla.getLblEmailName().getText();
+		
+		//create data object//
+		Account account=new Account(email, Constant.PASSWORD,Constant.PID);
+		
+		//set current tab//
+		String currentWindow = driver.getWindowHandle();
+		driver.switchTo().newWindow(WindowType.TAB);
+		driver.getWindowHandle();
+		
 		
 		System.out.println("Step 1: Navigate to QA Railway Website");
 		System.out.println("Step 2: Click on Create an account");
+		
+		HomePage homePage=new HomePage();
+		homePage.openRailway();
+		homePage.gotoRegisterPageByCreateAccount();
+		
 		System.out.println("Step 3: Enter valid information into all fields");
 		System.out.println("Step 4: Click on Register button");
+		RegisterPage registerPage=new RegisterPage();
+		registerPage.register(account);
+		
+		
 		System.out.println("Step 5: Get email information (webmail address, mailbox and password) and navigate to that webmail");
 		System.out.println("Step 6: Login to the mailbox");
+		
+		Utilities.switchToWindowByTitle("Guerrilla Mail");
+		Utilities.closeAdsIfPresent();
+	
 		System.out.println("Step 7: Open email with subject containing Please confirm your account and the email of the new account at step 3");
 		System.out.println("Step 8: Click on the activate link");
+		mailGruerrilla.activeEmail("Please confirm your account");
+	
+	}
+	@Test
+	public void TC12()
+	{
+		System.out.println("Step 1: Navigate to QA Railway Website");
+		System.out.println("Step 2: Login with a valid account");
+		HomePage homePage=new HomePage();
+		LoginPage loginPage=(LoginPage) homePage.open().gotoPage(MenuItem.LOGIN);
+		
+		System.out.println("Step 3: Click on Book ticket tab");
+		homePage.getTabBookTicket().click();
+		
+		System.out.println("Step 4: Select the next 2 days from Depart date");
+		
+		
+		System.out.println("Step 5: Select Depart from Nha Trang and Arrive at Huế ");
+		System.out.println("Step 6: Select Soft bed with air conditioner for Seat type");
+		System.out.println("Step 7: Select 1 for Ticket amount");
+		System.out.println("Step 8: Click on Book ticket button");
 
-		
-		
 	}
 }

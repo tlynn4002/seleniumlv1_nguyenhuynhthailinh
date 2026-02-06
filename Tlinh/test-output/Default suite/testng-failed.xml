@@ -5,8 +5,8 @@
     <classes>
       <class name="Railway.CreateAccount">
         <methods>
-          <include name="TC07"/>
           <include name="beforeMethod"/>
+          <include name="TC09"/>
           <include name="afterMethod"/>
         </methods>
       </class> <!-- Railway.CreateAccount -->

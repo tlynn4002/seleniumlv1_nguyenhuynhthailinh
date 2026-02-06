@@ -13,4 +13,7 @@ public class Constant{
 	public static final String INVALID_PASSWORD=".>+_)()(##";
 	public static final String WRONG_PASSWORD="147852365";
 	public static final String PID=Utilities.randomPID();
+	public static final String RANDOM_EMAIL=Utilities.randomEmail(5);
+	public static final int DEFAULT_TIMEOUT = 5;
+	
 }

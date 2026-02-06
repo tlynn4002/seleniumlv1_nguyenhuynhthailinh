@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import Constant.Constant;
 public class Utilities {
 	
 	private static WebDriver driver;
@@ -22,6 +22,10 @@ public class Utilities {
     public static WebElement waitForElementClickable(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+    
+    public static WebElement waitForElementClickable(By locator) {
+        return waitForElementClickable(locator, Constant.DEFAULT_TIMEOUT);
     }
 
 	
@@ -38,6 +42,10 @@ public class Utilities {
 	public static boolean waitForElementInvisible(By locator, int timeout) {
 	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
 	    return wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+	}
+	public static boolean waitForElementInvisible(By locator)
+	{
+		return waitForElementInvisible(locator, Constant.DEFAULT_TIMEOUT);
 	}
 	public static void click(By locator, int timeout) {
 	    WebElement element = waitForElementClickable(locator, timeout);
@@ -67,6 +75,36 @@ public class Utilities {
 		 }
 		    return result.toString();
 	}
+	public static void switchToWindowByTitle(String title) {
+	    for (String window : driver.getWindowHandles()) {
+	        driver.switchTo().window(window);
+	        if (driver.getTitle().contains(title)) {
+	            return;
+	        }
+	    }
+	}
+	
+	public static void sleep(int seconds) 
+	{
+	        try {
+	            Thread.sleep(seconds * 1000L);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	public static void closeAdsIfPresent() {
+	    try {
+	        JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
+
+	        js.executeScript(
+	            "let ads = document.querySelectorAll('iframe, .ads, [id*=ad]');" +
+	            "ads.forEach(a => a.remove());"
+	        );
+	    } catch (Exception e) {
+	        // ignore
+	    }
+	}
+
 	
 	
 }
