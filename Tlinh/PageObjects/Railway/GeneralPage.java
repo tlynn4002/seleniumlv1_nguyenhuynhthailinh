@@ -91,6 +91,9 @@ public class GeneralPage {
 	        case LOGOUT:
 	            Utilities.click(tabLogout, 2);
 	            return new HomePage();
+	        case BOOKTICKET:
+	        	Utilities.click(tabBookTicket, 2);
+	        	return new BookTicketPage();
 	        default:
 	            throw new IllegalArgumentException(
 	                "There is no " + menuItem

@@ -15,5 +15,7 @@ public class Constant{
 	public static final String PID=Utilities.randomPID();
 	public static final String RANDOM_EMAIL=Utilities.randomEmail(5);
 	public static final int DEFAULT_TIMEOUT = 5;
+	public static final String DATE_FORMAT = "M/d/yyyy";
+
 	
 }

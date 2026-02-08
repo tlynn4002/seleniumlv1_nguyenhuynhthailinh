@@ -1,5 +1,6 @@
 package Railway;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 import org.testng.Assert;
@@ -94,7 +95,7 @@ public class CreateAccount extends LoginTest{
 		//set current tab//
 		String currentWindow = driver.getWindowHandle();
 		driver.switchTo().newWindow(WindowType.TAB);
-		driver.getWindowHandle();
+		
 		
 		
 		System.out.println("Step 1: Navigate to QA Railway Website");
@@ -118,8 +119,13 @@ public class CreateAccount extends LoginTest{
 	
 		System.out.println("Step 7: Open email with subject containing Please confirm your account and the email of the new account at step 3");
 		System.out.println("Step 8: Click on the activate link");
-		mailGruerrilla.activeEmail("Please confirm your account", driver);
+		mailGruerrilla.activeEmail("Please confirm your account","Safe Railway - Registration Confirmation Pages");
 	
+		//Check message when click on activation link
+		String expectMsg="Registration Confirmed! You can now log in to the site";
+		String actualMsg=registerPage.getSuccessfulActivate().getText();
+		Assert.assertEquals(actualMsg, expectMsg);
+		
 	}
 	
 }

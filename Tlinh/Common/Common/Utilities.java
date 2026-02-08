@@ -1,6 +1,8 @@
 package Common;
 
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 import org.openqa.selenium.By;
@@ -39,6 +41,12 @@ public class Utilities {
 		js.executeScript("window.scrollBy(0,arguments[0])", pixel);
 	}
 	
+	public static void scrollToElement(WebElement element) {
+	    ((JavascriptExecutor) Constant.WEBDRIVER)
+	        .executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
+	}
+
+	
 	public static boolean waitForElementInvisible(By locator, int timeout) {
 	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
 	    return wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
@@ -47,6 +55,7 @@ public class Utilities {
 	{
 		return waitForElementInvisible(locator, Constant.DEFAULT_TIMEOUT);
 	}
+
 	public static void click(By locator, int timeout) {
 	    WebElement element = waitForElementClickable(locator, timeout);
 	    element.click();
@@ -75,6 +84,18 @@ public class Utilities {
 		 }
 		    return result.toString();
 	}
+	public static String randomPassword(int length)
+	{
+		String chars = "0123456789";
+		 StringBuilder result = new StringBuilder();
+		 Random random = new Random();
+
+		 for (int i = 0; i < length; i++) 
+		 {
+		     result.append(chars.charAt(random.nextInt(chars.length())));
+		 }
+		    return result.toString();
+	}
 	public static void switchToWindowByTitle(String title) {
 	    for (String window : driver.getWindowHandles()) {
 	        driver.switchTo().window(window);
@@ -83,6 +104,25 @@ public class Utilities {
 	        }
 	    }
 	}
+	
+	public static void switchToWindowByTitleAndRefresh(String title) {
+	    WebDriver driver = Constant.WEBDRIVER;
+
+	    for (String window : driver.getWindowHandles()) {
+	        driver.switchTo().window(window);
+	        if (driver.getTitle().contains(title)) {
+	            driver.navigate().refresh();
+
+	            new WebDriverWait(driver, Duration.ofSeconds(10)).until(
+	                wd -> ((JavascriptExecutor) wd)
+	                    .executeScript("return document.readyState")
+	                    .equals("complete")
+	            );
+	            break;
+	        }
+	    }
+	}
+
 	
 	public static void sleep(int seconds) 
 	{
@@ -105,6 +145,53 @@ public class Utilities {
 	    }
 	}
 
+	public static boolean isTextboxHasValue(By locator, int timeout) {
+	    WebElement element = waitForElementClickable(locator, timeout);
+	    String value = element.getAttribute("value");
+	    return value != null && !value.trim().isEmpty();
+	}
+
+	public static boolean isTextboxHasValue(By locator) {
+	    return isTextboxHasValue(locator, Constant.DEFAULT_TIMEOUT);
+	}
+
+	public static void switchToDefaultContent() {
+	    try {
+	        Constant.WEBDRIVER.switchTo().defaultContent();
+	    } catch (Exception e) {
+	        // ignore
+	    }
+	}
+	public static WebElement waitForElementVisible(By locator, int timeoutInSeconds) {
+	    WebDriverWait wait = new WebDriverWait(
+	            Constant.WEBDRIVER,
+	            Duration.ofSeconds(timeoutInSeconds)
+	    );
+	    return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
 	
+	public static WebElement waitForElementVisible(By locator) {
+	    WebDriverWait wait = new WebDriverWait(
+	        driver,
+	        Duration.ofSeconds(Constant.DEFAULT_TIMEOUT)
+	    );
+	    return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+
+	public static void refreshPage() {
+	    Constant.WEBDRIVER.navigate().refresh();
+	}
+
+	public static LocalDate parseDate(String dateText) {
+	    DateTimeFormatter formatter =
+	            DateTimeFormatter.ofPattern(Constant.DATE_FORMAT);
+	    return LocalDate.parse(dateText, formatter);
+	}
+
+	public static String formatDate(LocalDate date) {
+	    DateTimeFormatter formatter =
+	            DateTimeFormatter.ofPattern(Constant.DATE_FORMAT);
+	    return date.format(formatter);
+	}
 	
 }

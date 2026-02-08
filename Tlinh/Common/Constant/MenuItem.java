@@ -8,7 +8,8 @@ public enum MenuItem {
 	    FAQ("Faq"),
 	    REGISTER("Register"),
 	    LOGIN("Login"),
-	    LOGOUT("Logout");
+	    LOGOUT("Logout"),
+	    BOOKTICKET("BookTicket");
 	
 	private String itemName;
 	

@@ -14,7 +14,7 @@ public class RegisterPage extends GeneralPage{
 	private final By lblErrorMsg=By.xpath("//p[@class='message error']");
 	private final By lblPasswordErrorMsg=By.xpath("//label[normalize-space()='Invalid password length']");
 	private final By lblPIDErrorMsg=By.xpath("//label[normalize-space()='Invalid ID length']");
-	
+	private final By successfulActivateMsg=By.xpath("//div[@id='content']/p");
 	
 	protected WebElement getTxtEmail()
 	{
@@ -58,7 +58,10 @@ public class RegisterPage extends GeneralPage{
 	{
 		return Utilities.waitForElementClickable(lblPIDErrorMsg, 3);
 	}
-	
+	protected WebElement getSuccessfulActivate()
+	{
+		return Utilities.waitForElementClickable(successfulActivateMsg);
+	}
 	public HomePage register(Account account) {
     	//Submit login credentials
     	this.getTxtEmail().clear();
