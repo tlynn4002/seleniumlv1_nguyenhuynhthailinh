@@ -7,9 +7,11 @@ import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import Constant.Constant;
 public class Utilities {
@@ -192,6 +194,30 @@ public class Utilities {
 	    DateTimeFormatter formatter =
 	            DateTimeFormatter.ofPattern(Constant.DATE_FORMAT);
 	    return date.format(formatter);
+	}
+	public static void waitForSelectReload(By selectLocator)
+	{
+	    WebDriverWait wait = new WebDriverWait(
+	            Constant.WEBDRIVER,
+	            Duration.ofSeconds(Constant.DEFAULT_TIMEOUT)
+	    );
+
+	    WebElement oldSelect = wait.until(
+	            ExpectedConditions.presenceOfElementLocated(selectLocator)
+	    );
+
+	    wait.until(ExpectedConditions.stalenessOf(oldSelect));
+	    wait.until(ExpectedConditions.presenceOfElementLocated(selectLocator));
+	}
+
+	public static boolean isDisplayed(By locator)
+	{
+		try 
+		{
+			return Constant.WEBDRIVER.findElement(locator).isDisplayed();
+		} catch (Exception e) {
+			return false;
+		}
 	}
 	
 }

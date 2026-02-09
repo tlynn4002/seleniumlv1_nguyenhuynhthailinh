@@ -9,7 +9,8 @@ public enum MenuItem {
 	    REGISTER("Register"),
 	    LOGIN("Login"),
 	    LOGOUT("Logout"),
-	    BOOKTICKET("BookTicket");
+	    BOOKTICKET("BookTicket"),
+		TIMETABLE("TimeTable");
 	
 	private String itemName;
 	

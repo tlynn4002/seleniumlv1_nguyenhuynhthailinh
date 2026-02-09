@@ -4,6 +4,8 @@ package Railway;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.google.common.base.CaseFormat;
+
 import Common.Utilities;
 import Constant.MenuItem;
 
@@ -18,6 +20,7 @@ public class GeneralPage {
 	private final By tabRegister=By.xpath("//span[normalize-space()='Register']");
 	private final By btnCreateAccount= By.xpath("//a[normalize-space()='create an account']");
 	private final By tabBookTicket=By.xpath("//a[@href='/Page/BookTicketPage.cshtml']");
+	private final By tabTimeTable=By.xpath("//a[@href='TrainTimeListPage.cshtml']");
 	protected WebElement getTabLogin()
 	{
 		return Utilities.waitForElementClickable(tabLogin);
@@ -94,6 +97,9 @@ public class GeneralPage {
 	        case BOOKTICKET:
 	        	Utilities.click(tabBookTicket, 2);
 	        	return new BookTicketPage();
+	        case TIMETABLE:
+	        	Utilities.click(tabTimeTable, 2);
+	        	return new TimeTablePage();
 	        default:
 	            throw new IllegalArgumentException(
 	                "There is no " + menuItem
