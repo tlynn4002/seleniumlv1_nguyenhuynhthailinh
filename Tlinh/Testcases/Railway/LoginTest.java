@@ -18,9 +18,8 @@ public class LoginTest extends TestBase{
         System.out.println("Step 2: Click on 'Login' tab");
         
         HomePage homePage = new HomePage();
-        homePage.open();
         
-        LoginPage loginPage = (LoginPage) homePage.gotoPage(MenuItem.LOGIN);
+        LoginPage loginPage = (LoginPage) homePage.open().gotoPage(MenuItem.LOGIN);
         
         System.out.println("Step 3: Enter valid Email and Password");
         System.out.println("Step 4: Click on 'Login' button");
@@ -44,9 +43,8 @@ public class LoginTest extends TestBase{
     	System.out.println("Step 2: Click on Login tab");
     	
     	HomePage homePage = new HomePage();
-        homePage.open();
 
-        LoginPage loginPage = (LoginPage) homePage.gotoPage(MenuItem.LOGIN);
+        LoginPage loginPage = (LoginPage) homePage.open().gotoPage(MenuItem.LOGIN);
 
     	System.out.println("Step 3: User doesn't type any words into Username textbox but enter valid information into Password textbox");
     	System.out.println("Step 4: Click on Login button");
@@ -67,12 +65,10 @@ public class LoginTest extends TestBase{
     	Account account=new Account(Constant.USERNAME,Constant.INVALID_PASSWORD);
     	
     	System.out.println("Step 1: Navigate to QA Railway Website");
-    	System.out.println("Step 2: Click on \"Login\" tab");
+    	System.out.println("Step 2: Click on Login tab");
     	
     	HomePage homePage = new HomePage();
-        homePage.open();
-
-        LoginPage loginPage = (LoginPage) homePage.gotoPage(MenuItem.LOGIN);
+        LoginPage loginPage = (LoginPage) homePage.open().gotoPage(MenuItem.LOGIN);
         
     	System.out.println("Step 3: Enter valid Email and invalid Password");
     	System.out.println("Step 4: Click on \"Login\" button");
@@ -98,10 +94,8 @@ public class LoginTest extends TestBase{
     	System.out.println("Step 1: Navigate to QA Railway Website");
     	System.out.println("Step 2: Click on Login tab");
 
-    	HomePage homePage = new HomePage();
-        homePage.open();
-
-        LoginPage loginPage = (LoginPage) homePage.gotoPage(MenuItem.LOGIN);
+    	HomePage homePage = new HomePage();        
+        LoginPage loginPage = (LoginPage) homePage.open().gotoPage(MenuItem.LOGIN);
         
         
         System.out.println("Step 3: Enter valid information into \"Username\" textbox except \"Password\" textbox");
@@ -144,9 +138,8 @@ public class LoginTest extends TestBase{
     	System.out.println("Step 2: Click on Login tab");
     	
     	HomePage homePage = new HomePage();
-        homePage.open();
     	
-        LoginPage loginPage = (LoginPage) homePage.gotoPage(MenuItem.LOGIN);
+        LoginPage loginPage = (LoginPage) homePage.open().gotoPage(MenuItem.LOGIN);
 
     	System.out.println("Step 3: Enter username and password of account hasn't been activated.");
     	System.out.println("Step 4: Click on Login button");

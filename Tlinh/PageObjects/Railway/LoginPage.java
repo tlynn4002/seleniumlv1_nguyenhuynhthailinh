@@ -59,13 +59,14 @@ public class LoginPage extends GeneralPage {
     	//Land on Home Page
     	return new HomePage();
     }
-    public void forgetPassword(Account account)
+    public ResetPasswordPage forgetPassword(Account account)
     {
     	this.getForgetPasswordLink().click();
     	this.getTxtEmail().clear();
     	this.getTxtEmail().sendKeys(account.getEmail());
     	Utilities.scrollToElement(getBtnSendInstruction());
     	this.getBtnSendInstruction().click();
+    	return new ResetPasswordPage();
     }
     
 }

@@ -23,9 +23,8 @@ public class CreateAccount extends LoginTest{
     	System.out.println("Step 1: Navigate to QA Railway Website");
     	System.out.println("Step 2: Click on Register tab");
     	HomePage homePage = new HomePage();
-        homePage.open();
         
-        RegisterPage registerPage = (RegisterPage) homePage.gotoPage(MenuItem.REGISTER);
+        RegisterPage registerPage = (RegisterPage) homePage.open().gotoPage(MenuItem.REGISTER);
         
     	System.out.println("Step 3: Enter information of the created account in Pre-condition");
     	System.out.println("Step 4: Click on Register button");
@@ -42,20 +41,17 @@ public class CreateAccount extends LoginTest{
 	public void TC08()
 	{
 		System.out.println("TC08 - User can't create account while password and PID fields are empty");
-		
+		Account account=new Account("test@sharklasers.com", "", "");
 		
 		System.out.println("Step 1: Navigate to QA Railway Website");
 		
 		HomePage homePage = new HomePage();
-        homePage.open();
     	System.out.println("Step 2: Click on Register tab");
         
-    	RegisterPage registerPage = (RegisterPage)homePage.gotoPage(MenuItem.REGISTER);
+    	RegisterPage registerPage = (RegisterPage)homePage.open().gotoPage(MenuItem.REGISTER);
     	 
     	System.out.println("Step 3: Enter valid email address and leave other fields empty");
      	System.out.println("Step 4: Click on Register button");
-     	
-    	Account account=new Account("test@sharklasers.com", "", "");
         registerPage.register(account);
        
         //Check message//

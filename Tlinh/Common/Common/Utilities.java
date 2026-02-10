@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
+import org.openqa.selenium.*;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -58,8 +60,8 @@ public class Utilities {
 		return waitForElementInvisible(locator, Constant.DEFAULT_TIMEOUT);
 	}
 
-	public static void click(By locator, int timeout) {
-	    WebElement element = waitForElementClickable(locator, timeout);
+	public static void click(By locator) {
+	    WebElement element = waitForElementClickable(locator, Constant.DEFAULT_TIMEOUT);
 	    element.click();
 	}
 
@@ -220,4 +222,28 @@ public class Utilities {
 		}
 	}
 	
+	public static void handleAlert(boolean accept)
+	{
+		Alert alert= waitForAlert();
+		if(accept)
+		{
+			alert.accept();
+		}
+		else 
+		{
+			alert.dismiss();
+		}
+		
+	}
+	public static Alert waitForAlert()
+	{
+
+	    WebDriverWait wait = new WebDriverWait(
+	            Constant.WEBDRIVER,
+	            Duration.ofSeconds(20)
+	    );
+	    return wait.until(ExpectedConditions.alertIsPresent());
+	}
+
+
 }

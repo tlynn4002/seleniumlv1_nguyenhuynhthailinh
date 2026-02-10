@@ -21,6 +21,7 @@ public class GeneralPage {
 	private final By btnCreateAccount= By.xpath("//a[normalize-space()='create an account']");
 	private final By tabBookTicket=By.xpath("//a[@href='/Page/BookTicketPage.cshtml']");
 	private final By tabTimeTable=By.xpath("//a[@href='TrainTimeListPage.cshtml']");
+	private final By tabMyTicket=By.xpath("//a[@href='/Page/ManageTicket.cshtml']");
 	protected WebElement getTabLogin()
 	{
 		return Utilities.waitForElementClickable(tabLogin);
@@ -73,33 +74,40 @@ public class GeneralPage {
 		return Utilities.waitForElementClickable(btnCreateAccount);
 	}
 	
+	protected WebElement getTabMyTicket()
+	{
+		return Utilities.waitForElementClickable(tabMyTicket);
+	}
 	public GeneralPage gotoPage(MenuItem menuItem) {
 	    switch (menuItem) {
 	        case HOME:
-	            Utilities.click(tabHome, 2);
+	            Utilities.click(tabHome);
 	            return new HomePage();
 
 	        case FAQ:
-	            Utilities.click(tabFAQ, 2);
+	            Utilities.click(tabFAQ);
 	            return new FAQPage();
 
 	        case REGISTER:
-	            Utilities.click(tabRegister, 2);
+	            Utilities.click(tabRegister);
 	            return new RegisterPage();
 
 	        case LOGIN:
-	            Utilities.click(tabLogin, 2);
+	            Utilities.click(tabLogin);
 	            return new LoginPage();
 
 	        case LOGOUT:
-	            Utilities.click(tabLogout, 2);
+	            Utilities.click(tabLogout);
 	            return new HomePage();
 	        case BOOKTICKET:
-	        	Utilities.click(tabBookTicket, 2);
+	        	Utilities.click(tabBookTicket);
 	        	return new BookTicketPage();
 	        case TIMETABLE:
-	        	Utilities.click(tabTimeTable, 2);
+	        	Utilities.click(tabTimeTable);
 	        	return new TimeTablePage();
+	        case MYTICKET:
+	        	Utilities.click(tabMyTicket);
+	        	return new MyTicketPage();
 	        default:
 	            throw new IllegalArgumentException(
 	                "There is no " + menuItem

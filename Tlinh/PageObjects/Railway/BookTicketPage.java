@@ -75,6 +75,19 @@ public class BookTicketPage extends GeneralPage{
 		Select select = new Select(getDepartDate());
 	    return select.getFirstSelectedOption().getText().trim();
 	}
+	//get depart station from railway//
+	public String getDefaultDepartFrom()
+	{
+		Select select = new Select(getDepartFrom());
+	    return select.getFirstSelectedOption().getText().trim();
+	}
+	//get arrive station from railway//
+	public String getDefaultArriveTo()
+	{
+		Select select = new Select(getArriveAt());
+	    return select.getFirstSelectedOption().getText().trim();
+	}
+	
 	//add days to departDate default value//
 	public String addDays(String defaultDateString, int days) {
 		 LocalDate defaultDate = Utilities.parseDate(defaultDateString);
@@ -110,25 +123,27 @@ public class BookTicketPage extends GeneralPage{
 
 		    getBtnBookTicket().click();
 	}
-	
-	public void checkInfor(Ticket ticket,String expectedDate)
+	public void bookTicket(Ticket ticket, String departDateText)
 	{
-		String actualDepartDate=getInfoNeedToCheck("Depart Date").getText();
-		String actualDepartStation=getInfoNeedToCheck("Depart Station").getText();
-		String actualArriveStation=getInfoNeedToCheck("Arrive Station").getText();
-		String actualSeatType=getInfoNeedToCheck("Seat Type").getText();
-		String actualAmount=getInfoNeedToCheck("Amount").getText();
+		 new Select(getDepartDate())
+         .selectByVisibleText(departDateText);
+
+		new Select(getDepartFrom()).selectByVisibleText(ticket.getDepartFrom());
+		Utilities.waitForSelectReload(arriveAt);
+		
+		new Select(getArriveAt()).selectByVisibleText(ticket.getArriveAt());
 		
 		
+		new Select(getSeatType())
+		         .selectByVisibleText(ticket.getSeatType());
 		
-		Assert.assertEquals(actualDepartDate, expectedDate, "Depart Date mismatch");
-		Assert.assertEquals(actualDepartStation, ticket.getDepartFrom(), "Depart Station mismatch");
-		Assert.assertEquals(actualArriveStation, ticket.getArriveAt(), "Arrive Station mismatch");
-		Assert.assertEquals(actualSeatType, ticket.getSeatType(), "Seat Type mismatch");
-		Assert.assertEquals(actualAmount, ticket.getTicketAmount(), "Amount mismatch");
+		new Select(getTicketAmount())
+		         .selectByVisibleText(ticket.getTicketAmount());
 		
 		
+		 getBtnBookTicket().click();
 	}
 	
+
 
 }

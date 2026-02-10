@@ -11,7 +11,7 @@ public class TicketPricePage extends GeneralPage{
 
 	private final By lblTitleTicketPrice=By.xpath("//h1[normalize-space()='Ticket Price']");
 	private String priceToCheck="//tr[th[normalize-space()='Price (VND)']]/td[count(//tr[th[normalize-space()='Seat type']]/td[normalize-space()='%s']/preceding-sibling::td)+1]";
-	
+	private String titleTicketPriceTable="//table[contains(@class,'MyTable MedTable')]//tr[1]/th[contains(text(),'%s')]";
 	public boolean isTitleDisplayed()
 	{
 		return Utilities.isDisplayed(lblTitleTicketPrice);
@@ -22,13 +22,10 @@ public class TicketPricePage extends GeneralPage{
 		return Utilities.waitForElementVisible(By.xpath(xpathPriceToCheck)).getText();
 	}
 	
-	public void checkInfor(TicketPricePage ticketPricePage, String seatType, String expectedValue)
+	public String getTitleTicketPriceTable(String title)
 	{
-		String actualValue=ticketPricePage.getPriceToCheck(seatType);
-		
-		Assert.assertEquals(actualValue, expectedValue, seatType+" is not match as expected");
-		
-		
+		String xpathTitleTable=String.format(titleTicketPriceTable, title);
+		return Utilities.waitForElementVisible(By.xpath(xpathTitleTable)).getText();
 	}
 	
 }

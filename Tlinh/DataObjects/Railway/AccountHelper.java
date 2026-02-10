@@ -55,7 +55,7 @@ public class AccountHelper {
         Utilities.switchToWindowByTitle("Guerrilla Mail");
         Utilities.closeAdsIfPresent();
         //click back to inbox//
-        Utilities.click(By.id("back_to_inbox_link"), 5);
+        Utilities.click(By.id("back_to_inbox_link"));
         GruerrillaMailPage mailPage = new GruerrillaMailPage();
 
         mailPage.activeEmail(

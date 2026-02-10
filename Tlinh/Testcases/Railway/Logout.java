@@ -18,8 +18,7 @@ public class Logout extends LoginTest {
 	    	System.out.println("Step 2: Click on Login tab");
 	    	
 	    	HomePage homePage = new HomePage();
-	        homePage.open();
-	        LoginPage loginPage = (LoginPage) homePage.gotoPage(MenuItem.LOGIN);
+	        LoginPage loginPage = (LoginPage) homePage.open().gotoPage(MenuItem.LOGIN);
 	        
 	        System.out.println("Step 2: Login with valid Email and Password");
 	        loginPage.login(account);

@@ -62,7 +62,7 @@ public class RegisterPage extends GeneralPage{
 	{
 		return Utilities.waitForElementClickable(successfulActivateMsg);
 	}
-	public HomePage register(Account account) {
+	public RegisterPage register(Account account) {
     	//Submit login credentials
     	this.getTxtEmail().clear();
     	this.getTxtPassword().clear();
@@ -74,8 +74,8 @@ public class RegisterPage extends GeneralPage{
     	this.getTxtPID().sendKeys(account.getPid());
     	this.getBtnRegister().click();
     	
-    	//Land on Home Page
-    	return new HomePage();
+    	
+    	return new RegisterPage();
     }
 }
 
