@@ -44,9 +44,6 @@ public class AccountHelper {
 
         // Activate email
         mailPage2.activeEmail("Please confirm your account","Safe Railway - Registration Confirmation Pages");
-
-      
-        
         return account; 
     }
     public static void resetPassword() 

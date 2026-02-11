@@ -12,37 +12,40 @@ public class LoginPage extends GeneralPage {
     private final By txtPassword = By.xpath("//input[@id='password']");
     private final By btnLogin = By.xpath("//input[@value='login']");
     private final By lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
+    
     //Locators for when forgetPassword//
     private final By forgetPasswordLink=By.xpath("//a[@href='/Account/ForgotPassword.cshtml']");
     private final By btnSendInstruction=By.xpath("//input[@value='Send Instructions']");
     private final By txtEmail=By.xpath("//input[@id='email']");
+    
     // Elements
-    public WebElement getTxtUsername() {
+    
+    protected WebElement getTxtUsername() {
         return Utilities.waitForElementClickable(txtUsername, 3);
     }
 
-    public WebElement getTxtPassword() {
+    protected WebElement getTxtPassword() {
         return Utilities.waitForElementClickable(txtPassword, 3);
     }
 
-    public WebElement getBtnLogin() {
+    protected WebElement getBtnLogin() {
     	return Utilities.waitForElementClickable(btnLogin, 3);
     }
 
-    public String getLblLoginErrorMsg()
+    protected String getLblLoginErrorMsg()
     {
     	return Utilities.waitForElementClickable(lblLoginErrorMsg, 3).getText();
     }
-    public WebElement getForgetPasswordLink()
+    protected WebElement getForgetPasswordLink()
     {
     	return Utilities.waitForElementClickable(forgetPasswordLink);
     }
-    public WebElement getBtnSendInstruction()
+    protected WebElement getBtnSendInstruction()
     {
     	return Utilities.waitForElementClickable(btnSendInstruction,8);
     	
     }
-    public WebElement getTxtEmail()
+    protected WebElement getTxtEmail()
     {
     	return Utilities.waitForElementClickable(txtEmail);
     }
@@ -59,14 +62,14 @@ public class LoginPage extends GeneralPage {
     	//Land on Home Page
     	return new HomePage();
     }
-    public ResetPasswordPage forgetPassword(Account account)
+    public void forgetPassword(Account account)
     {
     	this.getForgetPasswordLink().click();
     	this.getTxtEmail().clear();
     	this.getTxtEmail().sendKeys(account.getEmail());
     	Utilities.scrollToElement(getBtnSendInstruction());
     	this.getBtnSendInstruction().click();
-    	return new ResetPasswordPage();
+    	
     }
     
 }

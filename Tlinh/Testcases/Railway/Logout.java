@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import Constant.Constant;
 import Constant.MenuItem;
 
-public class Logout extends LoginTest {
+public class Logout extends TestBase {
 		@Test
 		public void TC06()
 	    {

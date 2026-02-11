@@ -24,13 +24,14 @@ public class ResetPassword extends TestBase{
 		System.out.println("Step 2: Click on Forgot Password page link");
 		System.out.println("Step 3: Enter the email address of the activated account");
 		System.out.println("Step 4: Click on Send Instructions button");
-		ResetPasswordPage resetPasswordPage=loginPage.forgetPassword(account);
+		loginPage.forgetPassword(account);
 		
 		System.out.println("Step 5: Login to the mailbox (the same mailbox when creating account)");
 		System.out.println("Step 6: Open email with subject containing Please reset your password and the email of the account at step 3");
 		System.out.println("Step 7: Click on the reset link");
 		AccountHelper.resetPassword();
 		
+		ResetPasswordPage resetPasswordPage=new ResetPasswordPage();
 		boolean txtTokenHasValue=resetPasswordPage.isTxtResetTokenHasValue();
 		
 		//Check the token textbox has value or not//
@@ -59,13 +60,14 @@ public class ResetPassword extends TestBase{
 		System.out.println("Step 2: Click on Forgot Password page link");
 		System.out.println("Step 3: Enter the email address of the activated account");
 		System.out.println("Step 4: Click on Send Instructions button");
-		ResetPasswordPage resetPasswordPage=loginPage.forgetPassword(account);
+		loginPage.forgetPassword(account);
 		
 		System.out.println("Step 5: Login to the mailbox (the same mailbox when creating account)");
 		System.out.println("Step 6: Open email with subject containing Please reset your password and the email of the account at step 3");
 		System.out.println("Step 7: Click on the reset link");
 		AccountHelper.resetPassword();
 		
+		ResetPasswordPage resetPasswordPage=new ResetPasswordPage();
 		boolean txtTokenHasValue=resetPasswordPage.isTxtResetTokenHasValue();
 		
 		//Check the token textbox has value or not//

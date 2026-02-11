@@ -1,5 +1,6 @@
 package Railway;
 
+import org.openqa.selenium.Alert;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,8 +11,8 @@ public class CancelBooking extends TestBase{
 	@Test
 	public void TC16()
 	{
-//		Account account=AccountHelper.createAndActivateAccount();
-		Account account=new Account(Constant.USERNAME, Constant.PASSWORD);
+		Account account=AccountHelper.createAndActivateAccount();
+	//	Account account=new Account(Constant.USERNAME, Constant.PASSWORD);
 		System.out.println("Step 1: Navigate to QA Railway Website");
 		System.out.println("Step 2: Login with a valid account");
 
@@ -34,6 +35,7 @@ public class CancelBooking extends TestBase{
 		myTicketPage.getBtnCancel().click();
 		
 		System.out.println("Step 6: Click on OK button on Confirmation message Are you sure?");
+		
 		myTicketPage.clickOnAlert(true);
 		
 		boolean cancelStatus=myTicketPage.getBtnCancel().isDisplayed();

@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Feb 10 16:57:54 ICT 2026</td>
+<td>Started on:</td><td>Wed Feb 11 16:35:53 ICT 2026</td>
 </tr>
-<tr><td>Total time:</td><td>11 seconds (11614 ms)</td>
+<tr><td>Total time:</td><td>12 seconds (12398 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,26 +76,21 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Railway.CancelBooking.TC16()'><b>TC16</b><br>Test class: Railway.CancelBooking</td>
-<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;input type=&quot;button&quot; value=&quot;Cancel&quot; onclick=&quot;DeleteTicket(22151);&quot;&gt; is not clickable at point (1227, 669). Other element would receive the click: &lt;div style=&quot;width: 100%; color: White; font-family: &amp;quot;Helvetica Neue&amp;quot;, &amp;quot;Lucida Grande&amp;quot;, &amp;quot;Segoe UI&amp;quot;, Arial, Helvetica, Verdana, sans-serif; font-size: 11pt;&quot;&gt;...&lt;/div&gt;
-  (Session info: chrome=144.0.7559.133)
+<td title='Railway.LoginTest.TC01()'><b>TC01</b><br>Test class: Railway.LoginTest</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element found by By.xpath: //div[@class=&apos;account&apos;]//child::strong to be clickable, but the element was not visible.
+(tried for 5 seconds with 500 milliseconds interval)
 Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.16.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [099342877e586bd3e092cb00f351dddc, clickElement {id=f.D63E262470F535F8D994D4078BC5900A.d.8C4FB1D322927A5CFA1F27099C0A0895.e.148}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.133, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\LENOVO\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63803}, goog:processID: 10788, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63803/devtoo..., se:cdpVersion: 144.0.7559.133, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (099342877e586bd3e092cb00f351dddc)] -&gt; xpath: (//input[@value=&apos;Cancel&apos;])[1]]
-Session ID: 099342877e586bd3e092cb00f351dddc
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at Railway.CancelBooking.TC16(CancelBooking.java:34)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.45, chrome: {chromedriverVersion: 145.0.7632.46 (9b899469dedf..., userDataDir: C:\Users\LENOVO\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50719}, goog:processID: 8532, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50719/devtoo..., se:cdpVersion: 145.0.7632.45, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 1abdce72000a4edeacaacafcc00d1dfd
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at Common.Utilities.waitForElementClickable(Utilities.java:30)
+	at Common.Utilities.waitForElementClickable(Utilities.java:34)
+	at Railway.GeneralPage.getlblWelcomeMessage(GeneralPage.java:38)
+	at Railway.GeneralPage.getWelcomeMessage(GeneralPage.java:43)
+	at Railway.LoginTest.TC01(LoginTest.java:29)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -124,26 +119,21 @@ Session ID: 099342877e586bd3e092cb00f351dddc
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace91220956", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace91220956'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;input type=&quot;button&quot; value=&quot;Cancel&quot; onclick=&quot;DeleteTicket(22151);&quot;&gt; is not clickable at point (1227, 669). Other element would receive the click: &lt;div style=&quot;width: 100%; color: White; font-family: &amp;quot;Helvetica Neue&amp;quot;, &amp;quot;Lucida Grande&amp;quot;, &amp;quot;Segoe UI&amp;quot;, Arial, Helvetica, Verdana, sans-serif; font-size: 11pt;&quot;&gt;...&lt;/div&gt;
-  (Session info: chrome=144.0.7559.133)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1536728519", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1536728519'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element found by By.xpath: //div[@class=&apos;account&apos;]//child::strong to be clickable, but the element was not visible.
+(tried for 5 seconds with 500 milliseconds interval)
 Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.16.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [099342877e586bd3e092cb00f351dddc, clickElement {id=f.D63E262470F535F8D994D4078BC5900A.d.8C4FB1D322927A5CFA1F27099C0A0895.e.148}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.133, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\LENOVO\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63803}, goog:processID: 10788, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63803/devtoo..., se:cdpVersion: 144.0.7559.133, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (099342877e586bd3e092cb00f351dddc)] -&gt; xpath: (//input[@value=&apos;Cancel&apos;])[1]]
-Session ID: 099342877e586bd3e092cb00f351dddc
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at Railway.CancelBooking.TC16(CancelBooking.java:34)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.45, chrome: {chromedriverVersion: 145.0.7632.46 (9b899469dedf..., userDataDir: C:\Users\LENOVO\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50719}, goog:processID: 8532, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50719/devtoo..., se:cdpVersion: 145.0.7632.45, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 1abdce72000a4edeacaacafcc00d1dfd
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at Common.Utilities.waitForElementClickable(Utilities.java:30)
+	at Common.Utilities.waitForElementClickable(Utilities.java:34)
+	at Railway.GeneralPage.getlblWelcomeMessage(GeneralPage.java:38)
+	at Railway.GeneralPage.getWelcomeMessage(GeneralPage.java:43)
+	at Railway.LoginTest.TC01(LoginTest.java:29)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -173,8 +163,8 @@ Session ID: 099342877e586bd3e092cb00f351dddc
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>9</td>
-<td>Railway.CancelBooking@909217e</td></tr>
+<td>10</td>
+<td>Railway.LoginTest@5e2c3d18</td></tr>
 </table><p>
 </body>
 </html>

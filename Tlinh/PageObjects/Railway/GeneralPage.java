@@ -22,6 +22,7 @@ public class GeneralPage {
 	private final By tabBookTicket=By.xpath("//a[@href='/Page/BookTicketPage.cshtml']");
 	private final By tabTimeTable=By.xpath("//a[@href='TrainTimeListPage.cshtml']");
 	private final By tabMyTicket=By.xpath("//a[@href='/Page/ManageTicket.cshtml']");
+	
 	protected WebElement getTabLogin()
 	{
 		return Utilities.waitForElementClickable(tabLogin);
@@ -41,6 +42,7 @@ public class GeneralPage {
 	{
 		return this.getlblWelcomeMessage().getText();
 	}
+	
 	protected WebElement getTabFAQ()
 	{
 		return Utilities.waitForElementClickable(tabFAQ);
@@ -54,19 +56,10 @@ public class GeneralPage {
 	{
 		return Utilities.waitForElementClickable(tabRegister);
 	}
+	
 	protected WebElement getTabBookTicket()
 	{
 		return Utilities.waitForElementClickable(tabBookTicket);
-	}
-	public LoginPage gotoLoginPage()
-	{
-		this.getTabLogin().click();
-		return new LoginPage();
-	}
-	public RegisterPage gotoRegisterPage()
-	{
-		this.getTabRegister().click();
-		return new RegisterPage();
 	}
 	
 	protected WebElement getBtnCreateAccount() 
@@ -78,6 +71,20 @@ public class GeneralPage {
 	{
 		return Utilities.waitForElementClickable(tabMyTicket);
 	}
+	
+	public LoginPage gotoLoginPage()
+	{
+		this.getTabLogin().click();
+		return new LoginPage();
+	}
+	
+	public RegisterPage gotoRegisterPage()
+	{
+		this.getTabRegister().click();
+		return new RegisterPage();
+	}
+	
+
 	public GeneralPage gotoPage(MenuItem menuItem) {
 	    switch (menuItem) {
 	        case HOME:

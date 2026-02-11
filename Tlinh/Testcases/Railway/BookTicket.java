@@ -16,8 +16,8 @@ public class BookTicket extends TestBase {
 	public void TC12()
 	{
 		//Pre-condition: create an active account//
-//		Account account=AccountHelper.createAndActivateAccount();
-		Account account=new Account(Constant.USERNAME, Constant.PASSWORD);
+		Account account=AccountHelper.createAndActivateAccount();
+//		Account account=new Account(Constant.USERNAME, Constant.PASSWORD);
 		System.out.println("Step 1: Navigate to QA Railway Website");
 		System.out.println("Step 2: Login with a valid account");
 		
@@ -65,8 +65,8 @@ public class BookTicket extends TestBase {
 	public void TC13()
 	{
 		//Pre-condition: create an active account//
-	//	Account account=AccountHelper.createAndActivateAccount();
-		Account account=new Account(Constant.USERNAME, Constant.PASSWORD);
+		Account account=AccountHelper.createAndActivateAccount();
+	//	Account account=new Account(Constant.USERNAME, Constant.PASSWORD);
 		System.out.println("Step 1: Navigate to QA Railway Website");
 		System.out.println("Step 2: Login with a valid account");
 		
@@ -111,8 +111,8 @@ public class BookTicket extends TestBase {
 	public void TC14()
 	{
 		
-//		Account account=AccountHelper.createAndActivateAccount();
-		Account account=new Account(Constant.USERNAME, Constant.PASSWORD);
+		Account account=AccountHelper.createAndActivateAccount();
+//		Account account=new Account(Constant.USERNAME, Constant.PASSWORD);
 		
 		System.out.println("Step 1: Navigate to QA Railway Website");
 		System.out.println("Step 2: Login with a valid account");
@@ -147,7 +147,7 @@ public class BookTicket extends TestBase {
 	@Test
 	public void TC15()
 	{
-		Account account=new Account(Constant.USERNAME, Constant.PASSWORD);
+		Account account=AccountHelper.createAndActivateAccount();
 		
 		System.out.println("Step 1: Navigate to QA Railway Website");
 		System.out.println("Step 2: Login with a valid account");

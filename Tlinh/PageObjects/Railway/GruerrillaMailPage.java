@@ -19,22 +19,27 @@ public class GruerrillaMailPage {
 	
 	private String confirmationEmail=  "//tr[contains(@class,'mail_row')]//a[contains(text(),'%s')]";
 	private By linkConfirmActive=By.xpath("//div[contains(@class,'email_body')]/a");
+	
 	protected WebElement getTxtEmailName()
 	{
 		return Utilities.waitForElementClickable(txtEmailName);
 	}
+	
 	protected WebElement getBnSet()
 	{
 		return Utilities.waitForElementClickable(btnSet);
 	}
+	
 	protected WebElement getChkboxScamble()
 	{
 		return Utilities.waitForElementClickable(chkboxScamble);
 	}
+	
 	protected WebElement getLblEmailName()
 	{
 		return Utilities.waitForElementClickable(lblEmailName);
 	}
+	
 	protected WebElement getInputEmailName()
 	{
 		return Utilities.waitForElementClickable(inputEmailName);
@@ -44,6 +49,7 @@ public class GruerrillaMailPage {
 	{
 		return Utilities.waitForElementClickable(linkConfirmActive);
 	}
+	
 	public GruerrillaMailPage setEmailName(String randomEmailName) 
 	{
 		this.getTxtEmailName().click();

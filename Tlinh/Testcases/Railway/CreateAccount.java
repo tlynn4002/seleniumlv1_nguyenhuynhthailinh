@@ -11,7 +11,7 @@ import Constant.Constant;
 import Constant.MenuItem;
 
 
-public class CreateAccount extends LoginTest{
+public class CreateAccount extends TestBase{
 	@Test
 	public void TC07()
     {
