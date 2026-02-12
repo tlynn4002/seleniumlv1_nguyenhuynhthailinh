@@ -4,6 +4,7 @@ import org.openqa.selenium.Alert;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import Common.Utilities;
 import Constant.Constant;
 import Constant.MenuItem;
 
@@ -33,6 +34,7 @@ public class CancelBooking extends TestBase{
 		
 		System.out.println("Step 5: Click on Cancel button of ticket which user want to cancel.");
 		myTicketPage.getBtnCancel().click();
+		
 		
 		System.out.println("Step 6: Click on OK button on Confirmation message Are you sure?");
 		

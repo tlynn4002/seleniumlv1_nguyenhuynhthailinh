@@ -57,18 +57,18 @@ public class LoginPage extends GeneralPage {
     	this.getTxtPassword().clear();
     	this.getTxtUsername().sendKeys(account.getEmail());
     	this.getTxtPassword().sendKeys(account.getPassword());
-    	this.getBtnLogin().click();
+    	Utilities.click(btnLogin);
     	
     	//Land on Home Page
     	return new HomePage();
     }
     public void forgetPassword(Account account)
     {
-    	this.getForgetPasswordLink().click();
+    	Utilities.click(forgetPasswordLink);
     	this.getTxtEmail().clear();
     	this.getTxtEmail().sendKeys(account.getEmail());
     	Utilities.scrollToElement(getBtnSendInstruction());
-    	this.getBtnSendInstruction().click();
+    	Utilities.click(btnSendInstruction);
     	
     }
     

@@ -72,8 +72,7 @@ public class RegisterPage extends GeneralPage{
     	this.getTxtPassword().sendKeys(account.getPassword());
     	this.getConfirmPassword().sendKeys(account.getPassword());
     	this.getTxtPID().sendKeys(account.getPid());
-    	this.getBtnRegister().click();
-    	
+    	Utilities.click(btnRegister);
     	
     	return new RegisterPage();
     }

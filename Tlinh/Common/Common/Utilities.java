@@ -60,10 +60,6 @@ public class Utilities {
 		return waitForElementInvisible(locator, Constant.DEFAULT_TIMEOUT);
 	}
 
-	public static void click(By locator) {
-	    WebElement element = waitForElementClickable(locator, Constant.DEFAULT_TIMEOUT);
-	    element.click();
-	}
 
 	public static String randomPID() {
 	    String numberFrom0to9 = "0123456789";
@@ -245,5 +241,15 @@ public class Utilities {
 	    return wait.until(ExpectedConditions.alertIsPresent());
 	}
 
+	public static void click(By locator) {
+        WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(Constant.DEFAULT_TIMEOUT));
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+
+        JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
+        js.executeScript("arguments[0].scrollIntoView({block:'center'});", element);
+
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+        element.click();
+    }
 
 }

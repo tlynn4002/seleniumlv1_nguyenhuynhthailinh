@@ -52,10 +52,10 @@ public class GruerrillaMailPage {
 	
 	public GruerrillaMailPage setEmailName(String randomEmailName) 
 	{
-		this.getTxtEmailName().click();
+		Utilities.click(txtEmailName);
 		this.getInputEmailName().sendKeys(randomEmailName);
-		this.getBnSet().click();
-		this.getChkboxScamble().click();
+		Utilities.click(btnSet);
+		Utilities.click(chkboxScamble);
 		return this;
 	}
 	
@@ -74,11 +74,12 @@ public class GruerrillaMailPage {
 	    //click on email //
 	    Utilities.waitForElementVisible(emailLocator, 60);
 	    Utilities.scrollToElement((Utilities.waitForElementClickable(emailLocator)));
-	    Constant.WEBDRIVER.findElement(emailLocator).click();
+//	    Constant.WEBDRIVER.findElement(emailLocator).click();
+	    Utilities.click(emailLocator);
 
 	   // lick link activate
 	    Utilities.waitForElementVisible(linkConfirmActive, 20);
-	    getLinkConfirmActive().click();
+	    Utilities.click(linkConfirmActive);
 
 	    // navigate to railway to do next steps
 	    Utilities.switchToWindowByTitle(title);

@@ -4,7 +4,6 @@
 
     <test name="Railway Test">
         <parameter name="browser" value="chrome"/>
-
         <classes>
             <class name="Railway.LoginTest"/>
             <class name="Railway.Logout"/>

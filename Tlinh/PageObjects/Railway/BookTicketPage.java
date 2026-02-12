@@ -69,6 +69,7 @@ public class BookTicketPage extends GeneralPage{
 		
 	}
 	
+	///Method//
 	///get departDate from Railway//
 	public String getDefaultDepartDate()
 	{
@@ -120,9 +121,9 @@ public class BookTicketPage extends GeneralPage{
 		 new Select(getTicketAmount())
 		            .selectByVisibleText(ticket.getTicketAmount());
 		 
-
-		    getBtnBookTicket().click();
+		 Utilities.click(btnBookTicket);
 	}
+	
 	public void bookTicket(Ticket ticket, String departDateText)
 	{
 		 new Select(getDepartDate())
@@ -140,8 +141,7 @@ public class BookTicketPage extends GeneralPage{
 		new Select(getTicketAmount())
 		         .selectByVisibleText(ticket.getTicketAmount());
 		
-		
-		 getBtnBookTicket().click();
+		Utilities.click(btnBookTicket);
 	}
 	
 

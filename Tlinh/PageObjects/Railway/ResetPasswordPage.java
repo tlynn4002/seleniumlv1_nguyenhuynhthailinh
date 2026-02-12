@@ -58,7 +58,7 @@ public class ResetPasswordPage extends GeneralPage{
 		cfPass.sendKeys(cfPassword);
 
 		Utilities.scrollToElement(btn);
-		btn.click();
+		Utilities.click(btnResetPassword);
 		
 	}
 }
